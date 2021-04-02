@@ -22,6 +22,6 @@ public class Blog {
     @Column(length = 255)
     private String category;
 
-    @Column(columnDefinition = "CLOB")
+    @Column(columnDefinition = "CLOB default 'NO TEXT YET'")
     private String blogText;
 }

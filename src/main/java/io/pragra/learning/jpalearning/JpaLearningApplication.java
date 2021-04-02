@@ -18,8 +18,9 @@ public class JpaLearningApplication {
        ApplicationContext context =  SpringApplication.run(JpaLearningApplication.class, args);
         UserService service = context.getBean(UserService.class);
 
-        service.addUser(new User(1L, "Prakash", Instant.now(), null));
-        service.addUser(new User(2L, "Naveleen", Instant.now(), null));
+        service.addUser(User.builder().id(1L).name("PRAKASH M").createDateTime(Instant.ofEpochSecond(220392023)).build());
+        service.addUser(User.builder().id(2L).name("Naveleen").build());
+
 
         BlogRepo repo = context.getBean(BlogRepo.class);
         Blog blog = Blog.builder().userId(2L).category("JAVA").blogText(

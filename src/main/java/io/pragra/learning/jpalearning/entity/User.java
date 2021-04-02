@@ -1,6 +1,7 @@
 package io.pragra.learning.jpalearning.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @Entity
 @Table(name = "TABLE_USER")
+@Builder
 public class User {
     @Id
     private Long id;
@@ -23,8 +25,10 @@ public class User {
     private String name;
 
     @Column(name = "CREATE_DATE")
-    private Instant createDateTime;
+    @Builder.Default
+    private Instant createDateTime = Instant.now();
 
     @Column(nullable = true )
-    private Instant updateDateTime ;
+    @Builder.Default
+    private Instant updateDateTime = Instant.now() ;
 }
